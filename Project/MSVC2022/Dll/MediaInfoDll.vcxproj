@@ -360,7 +360,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <SetChecksum>true</SetChecksum>
       <ModuleDefinitionFile>../../../Source/MediaInfoDLL/MediaInfoDLL.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <CETCompat>true</CETCompat>
     </Link>
   </ItemDefinitionGroup>
