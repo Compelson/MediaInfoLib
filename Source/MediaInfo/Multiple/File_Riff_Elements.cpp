@@ -26,8 +26,8 @@
 #include <ZenLib/Ztring.h>
 #include <string>
 #include <algorithm>
-using namespace tinyxml2;
-using namespace std;
+//using namespace tinyxml2; // not used at all, breaks VS compilation
+//using namespace std; // not used at all, breaks VS compilation
 using namespace ZenLib;
 //---------------------------------------------------------------------------
 
