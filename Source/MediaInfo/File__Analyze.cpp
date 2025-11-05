@@ -658,7 +658,7 @@ File__Analyze::File__Analyze ()
     Element_Size=0;
 
     //Elements
-    Element.resize(64);
+    Element.resize(1024);
     Element[0].Code=0;
     Element[0].Next=File_Size;
     Element[0].WaitForMoreData=false;
