@@ -59,6 +59,7 @@ private :
 
     //Helpers
     int64u SizeOfLine();
+    void SkipWhitespace();
     bool   Get_Next(string &Key, Ztring &Value); //Returns true if it is an array
 
     //Temp

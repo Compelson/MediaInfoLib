@@ -220,6 +220,12 @@ void File_Pdf::Data_Parse()
     }
 }
 
+//---------------------------------------------------------------------------
+void File_Pdf::SkipWhitespace()
+{
+    while (Element_Offset < Element_Size && (Buffer[Buffer_Offset + (size_t)Element_Offset] == '\r' || Buffer[Buffer_Offset + (size_t)Element_Offset] == '\n' || Buffer[Buffer_Offset + (size_t)Element_Offset] == ' '))
+        Element_Offset++;    
+}
 //***************************************************************************
 // Elements
 //***************************************************************************
@@ -232,9 +238,11 @@ void File_Pdf::xref()
 
     Element_Begin1("Cross-Reference Section");
 
+    SkipWhitespace();
+
     string FirstLine;
-    Get_String(SizeOfLine(), FirstLine,                             "Object name");
-    if (FirstLine!="xref")
+    Get_String(strlen("xref"), FirstLine,                             "Object name");
+    if (FirstLine != "xref")
     {
         //Problem
         Skip_XX(Element_Size-Element_Offset,                        "(Problem)");
@@ -242,8 +250,11 @@ void File_Pdf::xref()
         Element_End0();
         return;
     }
+    SkipWhitespace();
+
     Element_Begin1("Cross-Reference SubSection");
-        Get_String(SizeOfLine(), FirstLine,                         "Header");
+    Get_String(SizeOfLine(), FirstLine, "Header");
+
         size_t FirstLine_Space=FirstLine.find(' ');
         int32u Base=atoi((const char*)FirstLine.c_str());
         int32u Count=0;
